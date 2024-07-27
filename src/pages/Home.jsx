@@ -1,4 +1,4 @@
-import { Container, CountryList, Heading, Section } from 'components';
+import { Container, CountryList, Heading, Section, Loader } from 'components';
 import { useEffect, useState } from 'react';
 import { getCountries } from '../service/countryApi';
 
@@ -24,6 +24,7 @@ export const Home = () => {
   return (
     <Section>
       <Container>
+        {isLoading && <Loader />}
         {error && <Heading title={error} bottom />}
         <CountryList countries={countries} />
       </Container>
